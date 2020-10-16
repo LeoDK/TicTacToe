@@ -1,0 +1,77 @@
+-- Specification of Tic Tac Toe protocol messages.
+-- 
+
+TicTacToe
+
+DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+
+  Command ::= CHOICE {
+    hello Hello,
+    actionX ActionX,
+    actionO ActionO
+  }
+
+  ServerAnswer ::= CHOICE {
+    helloX HelloX,
+    helloO HelloO,
+    invalidName InvalidName,
+    play Play,
+    players Players,
+    validPosition ValidPosition,
+    invalidPosition InvalidPosition,
+    win Win,
+    lose Lose,
+    tie Tie
+  }
+
+  Hello ::= SEQUENCE {
+    name  VisibleString
+  }
+
+  HelloX ::= SEQUENCE {
+  }
+
+  HelloO ::= SEQUENCE {
+  }
+
+  InvalidName ::= SEQUENCE {
+  }
+
+  Players ::= SEQUENCE {
+    playerX VisibleString,
+    playerO VisibleString
+  }
+
+  Play ::= SEQUENCE {}
+
+  ActionX ::= SEQUENCE {
+    x INTEGER,
+    y INTEGER
+  }
+
+  ActionO ::= SEQUENCE {
+    x INTEGER,
+    y INTEGER
+  }
+
+  InvalidPosition ::= SEQUENCE {
+  }
+
+  ValidPosition ::= SEQUENCE {
+    x INTEGER,
+    y INTEGER
+  }
+
+  Win ::= SEQUENCE {
+    x INTEGER,
+    y INTEGER
+  }
+
+  Lose ::= SEQUENCE {
+    x INTEGER,
+    y INTEGER
+  }
+
+  Tie ::= SEQUENCE {}
+
+END
